@@ -1,11 +1,10 @@
 import streamlit as st
 import random
 import time
-
-st.title("Simple chat")
-
 import requests
 import json
+
+st.title("Simple chat")
 
 def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="mistral-small-latest", api_key=None, api_url="https://api.mistral.ai/v1/chat/completions"):
 if api_key is None or api_url is None:
@@ -72,7 +71,7 @@ if prompt := st.chat_input("What is up?"):
 def response_generator():
     response = ai_ask("Pretend you are a very friendly and helpful person.  Please provide a response given the provided context.  Please provide the response only with no before or after commentary.",
                       data=st.session_state.messages,
-                      api_key=st.secrets["apikey"])
+                      api_key=st.secrets["zpzq7ON1Z8Teeh0wjWK6HH0lvx85t0k3"])
     for word in response.split():
         yield word + " "
         time.sleep(0.05)
